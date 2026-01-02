@@ -1,0 +1,22 @@
+post:
+  tags:
+    - Authentication
+  summary: User authentication
+  description: "This operation allows users to authenticate with the system. The user credentials are passed in the request body."
+  operationId: authenticateUser
+  security: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../components/schemas/LoginRequest.yaml'
+  responses:
+    '200':
+      description: Login successfull
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/AuthResponse.yaml'
+    '401':
+      description: Unauthorized - Invalid credentials

@@ -1,0 +1,23 @@
+type: object
+properties:
+  token:
+    type: string
+    description: "Authentication token."
+    example: abcdefghijkl
+  type:
+    type: string
+    description: Type of the token
+    example: Bearer
+  expiresAt:
+    type: string
+    format: datetime
+    description: Timestamp the token is valid to
+    example: "2025-12-31T23:59:59Z"
+  roles:
+    type: array
+    description: "An array of roles for the user."
+    items:
+      type: string
+      description: "The roles of the user."
+  user:
+    $ref: UserResponse.yaml

@@ -1,0 +1,19 @@
+get:
+  tags: 
+    -  "Admin"
+  summary: Get list of users
+  description: "This operation retrieves a list of all users in the system."
+  operationId: getUsers  
+  security: 
+    -  bearerAuth: []
+  responses: 
+    '200': 
+      description: List of users
+      content: 
+        application/json: 
+          schema: 
+            type: array
+            items: 
+              $ref: '../components/schemas/UserResponse.yaml'
+    '400':
+      description: Bad request 

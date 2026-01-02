@@ -1,0 +1,102 @@
+get:
+  tags:
+    - Admin
+  summary: Get user by id
+  description: "This operation retrieves the user profile for the specified user."
+  operationId: getUserById
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: id
+      in: path
+      description: "The id of the user profile to be retrieved."
+      example: 101
+      required: true
+      schema:
+        type: integer
+        format: int64
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/UserResponse.yaml'
+    '400':
+      description: Invalid username provided
+      $ref: ../components/responses/BadRequest_400.yaml
+    '403':
+      description: Forbidden
+      $ref: ../components/responses/Problem.yaml
+    '404':
+      description: User not found
+      $ref: ../components/responses/NotFound_404.yaml
+put:
+  tags:
+    - Admin
+  summary: Update user data
+  description: "This operation allows users to update the information in their own profile. The update can only be performed by the logged in user."
+  operationId: updateUser
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: id
+      in: path
+      description: "The name of the user profile to be **updated**."
+      required: true
+      schema:
+        type: integer
+        format: int64
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../components/schemas/UserRegistration.yaml'
+    description: Updated user object
+    required: true
+  responses:
+    '200':
+      description: Successfully updated the user profile
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/UserResponse.yaml'
+    '400':
+      description: Invalid username provided
+      $ref: ../components/responses/BadRequest_400.yaml
+    '404':
+      description: User not found
+      $ref: ../components/responses/NotFound_404.yaml
+    '405':
+      description: Method not allowed
+      content:
+        application/json:
+          example:
+            status: 405
+            message: Not allowed
+delete:
+  tags:
+    - Admin
+  summary: Delete a user
+  description: "This operation deletes all data associated with the requested `username`. Only administrators can perform this operation."
+  operationId: deleteUser
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: id
+      in: path
+      description: "The name of the user profile to be **deleted**."
+      example: 101
+      required: true
+      schema:
+        type: integer
+        format: int64
+  responses:
+    '204':
+      description: Successfully deleted a user profile
+    '400':
+      description: Invalid username provided
+      $ref: ../components/responses/BadRequest_400.yaml
+    '404':
+      description: User not found
+      $ref: ../components/responses/NotFound_404.yaml

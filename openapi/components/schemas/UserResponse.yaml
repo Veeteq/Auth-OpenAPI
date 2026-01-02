@@ -1,0 +1,28 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int64,
+    description: "The unique identifier of the user."
+  username:
+    type: string
+    description: "The username of the user."
+  firstName:
+    type: string
+    description: "The first name of the user."
+  lastName:
+    type: string
+    description: "The last name of the user."
+  email:
+    type: string
+    description: "The email address of the user."
+  enabled:
+    type: boolean
+    description: "A flag indicating whether the user is enabled or not."
+  roles:
+    type: array
+    items:
+      type: string
+      description: "The roles of the user."
+    description: "An array of roles for the user."
+  

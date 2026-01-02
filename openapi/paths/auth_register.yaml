@@ -1,0 +1,19 @@
+post:
+  tags:
+    - Authentication
+  summary: Register a new user
+  description: "This operation allows the creation of a new user in the system."
+  operationId: registerUser
+  security: []
+  requestBody: 
+    required: true
+    description: Data required to register a new user
+    content: 
+      application/json:
+        schema:
+          $ref: '../components/schemas/UserRegistration.yaml'
+  responses:
+    '201':
+      description: Successfully registered a new user
+    '405':
+      description: Invalid input

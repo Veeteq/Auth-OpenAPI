@@ -1,0 +1,48 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: User Management API (Spring Boot)
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  description: >
+    Backed SprinBoot Application API supporting Angular application for User Authentication and CRUD operation.
+servers:
+  - url: https://{tenant}/api/v1
+    description: Tenant server
+    variables:
+      tenant:
+        default: www
+        description: Your tenant id
+  - url: https://example.com/api/v1
+    description: Example server
+tags:
+  - name: Authentication
+    description: "Authentication operations."
+  - name: Admin
+    description: "Administrative operations."
+x-tagGroups:
+  - name: General
+    tags:
+      - Authentication
+      - Admin
+paths:
+  '/auth/login':
+    $ref: 'paths/auth_login.yaml'
+  '/auth/register':
+    $ref: 'paths/auth_register.yaml'
+  '/auth/refresh':
+    $ref: 'paths/auth_refresh.yaml'
+  '/users':
+    $ref: 'paths/users.yaml'
+  '/users/{id}':
+    $ref: 'paths/users_{id}.yaml'
+components:
+  securitySchemes:
+    basic_auth:
+      type: http
+      scheme: basic
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

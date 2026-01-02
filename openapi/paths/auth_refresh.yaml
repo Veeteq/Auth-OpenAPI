@@ -1,0 +1,22 @@
+post:
+  tags:
+    - Authentication
+  summary: Refresh user token
+  description: "This operation allows users to refresh their authentication token."
+  operationId: refreshToken
+  security: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/LoginRequest.yaml
+  responses:
+    '200':
+      description: Login successfull
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/UserResponse.yaml'
+    '401':
+      description: Unauthorized - Invalid credentials

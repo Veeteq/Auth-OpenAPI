@@ -1,0 +1,10 @@
+type: object                    
+properties:
+  username:
+    type: string
+    description: "The username of the user."
+    example: johndoe
+  password:
+    type: string
+    description: "The password of the user."
+    example: strongpassword123
