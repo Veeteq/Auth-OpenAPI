@@ -1,0 +1,18 @@
+post:
+  tags:
+    - Authentication
+  summary: User logout
+  description: "This operation allows users to logout of the system."
+  operationId: logoutUser
+  security: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/LoginRequest.yaml
+  responses:
+    '204':
+      description: Logout successful      
+    '401':
+      description: Unauthorized - Invalid credentials
