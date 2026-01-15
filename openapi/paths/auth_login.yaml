@@ -17,6 +17,6 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/AuthResponse.yaml'
+            $ref: '../components/schemas/LoginResponse.yaml'
     '401':
       description: Unauthorized - Invalid credentials
