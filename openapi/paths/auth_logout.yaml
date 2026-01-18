@@ -11,6 +11,13 @@ post:
       application/json:
         schema:
           $ref: ../components/schemas/LoginRequest.yaml
+  parameters: 
+    - name: Set-Cookie
+      in: header
+      description: "Refresh token cookie"         
+      required: true
+      schema:
+        type: string          
   responses:
     '204':
       description: Logout successful      
