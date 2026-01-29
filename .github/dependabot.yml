@@ -20,5 +20,5 @@ updates:
       - "redocly"
     allow:
       - dependency-type: "direct"
-#      - dependency-name: "@redocly/cli"
         update-types: ["semver:patch", "semver:minor"]
+#      - dependency-name: "@redocly/cli"
