@@ -11,8 +11,6 @@ post:
       application/json:
         schema:
           $ref: '../components/schemas/LoginRequest.yaml'
-  parameters:
-    - $ref: '../components/parameters/SetCookieParam.yaml'
   responses:
     '200':
       description: Login successful
