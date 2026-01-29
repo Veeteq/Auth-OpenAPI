@@ -3,7 +3,7 @@ post:
     - Authentication
   summary: User authentication
   description: "This operation allows users to authenticate with the system. The user credentials are passed in the request body."
-  operationId: authenticateUser
+  operationId: loginUser
   security: []
   requestBody:
     required: true
@@ -11,12 +11,23 @@ post:
       application/json:
         schema:
           $ref: '../components/schemas/LoginRequest.yaml'
+  parameters:
+    - $ref: '../components/parameters/SetCookieParam.yaml'
   responses:
     '200':
-      description: Login successfull
+      description: Login successful
+      headers:
+        Set-Cookie:
+          $ref: ../components/headers/SetCookie.yaml
       content:
         application/json:
           schema:
             $ref: '../components/schemas/LoginResponse.yaml'
+    '400':
+      $ref: ../components/responses/BadRequest_400.yaml
     '401':
-      description: Unauthorized - Invalid credentials
+      $ref: ../components/responses/Unauthorized_401.yaml
+    '403':
+      $ref: ../components/responses/Forbidden_403.yaml
+    '500':
+      $ref: ../components/responses/InternalServerError_500.yaml      

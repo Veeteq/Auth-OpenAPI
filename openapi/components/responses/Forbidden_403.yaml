@@ -1,4 +1,4 @@
-description: The requested resource was not found
+description: Forbidden - User is not authorized to use this resource
 content:
   application/problem+json:
     schema:

@@ -1,0 +1,23 @@
+type: object
+required:
+  - token
+  - type
+  - expiresIn
+  - expiresAt
+properties:
+  token:
+    type: string
+    description: "The new short-lived auth token (JWT)."
+    example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+  type:
+    type: string
+    example: "Bearer"
+  expiresIn:
+    type: integer
+    description: "Auth token lifetime in seconds."
+    example: 3600
+  expiresAt:
+    type: string
+    format: date-time
+    description: "Auth token expiration timestamp."
+    example: "2026-01-29T12:30:00Z"

@@ -1,6 +1,6 @@
 get:
   tags: 
-    -  "Admin"
+    -  Admin
   summary: Get list of users
   description: "This operation retrieves a list of all users in the system."
   operationId: getUsers  
