@@ -5,9 +5,14 @@ required:
 properties:
   username:
     type: string
-    description: "The username of the user."
+    minLength: 1
+    maxLength: 255
+    pattern: '^[a-zA-Z0-9._@-]+$'
+    description: User's email or username
     example: johndoe
   password:
     type: string
-    description: "The password of the user."
+    minLength: 8
+    maxLength: 128
+    description: User's password (minimum 8 characters)
     example: strongpassword123

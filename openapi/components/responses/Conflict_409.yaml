@@ -1,4 +1,4 @@
-description: Conflict
+description: Conflict - Resource already exists
 content:
   application/problem+json:
     schema:

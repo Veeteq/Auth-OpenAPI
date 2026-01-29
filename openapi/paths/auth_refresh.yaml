@@ -2,28 +2,24 @@ post:
   tags:
     - Authentication
   summary: Refresh user token
-  description: "This operation allows users to refresh their authentication token."
+  description: "Refreshes an expired or expiring authentication token using the refresh token from the Set-Cookie header."
   operationId: refreshToken
   security: []
-  requestBody:
-    required: true
-    content:
-      application/json:
-        schema:
-          $ref: ../components/schemas/LoginRequest.yaml
-  parameters: 
-    - name: Set-Cookie
-      in: header
-      description: "Refresh token cookie"         
-      required: true
-      schema:
-        type: string
+  parameters:
+    - $ref: '../components/parameters/SetCookieParam.yaml'
   responses:
     '200':
-      description: Login successfull
+      description: Token refreshed successfully
+      headers:
+        Set-Cookie:
+          $ref: ../components/headers/SetCookie.yaml
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/LoginResponse.yaml
+            $ref: '../components/schemas/RefreshTokenResponse.yaml'
+    '400':
+      $ref: ../components/responses/BadRequest_400.yaml
     '401':
-      description: Unauthorized - Invalid credentials
+      $ref: ../components/responses/Unauthorized_401.yaml
+    '500':
+      $ref: ../components/responses/InternalServerError_500.yaml

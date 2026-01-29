@@ -4,22 +4,17 @@ post:
   summary: User logout
   description: "This operation allows users to logout of the system."
   operationId: logoutUser
-  security: []
-  requestBody:
-    required: true
-    content:
-      application/json:
-        schema:
-          $ref: ../components/schemas/LoginRequest.yaml
-  parameters: 
-    - name: Set-Cookie
-      in: header
-      description: "Refresh token cookie"         
-      required: true
-      schema:
-        type: string          
+  security:
+    - bearerAuth: []
+  parameters:
+    - $ref: '../components/parameters/SetCookieParam.yaml'
   responses:
     '204':
-      description: Logout successful      
+      description: Logout successful   
+      headers:
+        Set-Cookie:
+          $ref: ../components/headers/SetCookie.yaml
     '401':
-      description: Unauthorized - Invalid credentials
+      $ref: ../components/responses/Unauthorized_401.yaml
+    '500':
+      $ref: ../components/responses/InternalServerError_500.yaml

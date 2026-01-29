@@ -1,23 +1,39 @@
-type: object
+type: object                    
+required:
+  - token
+  - type
+  - expiresIn
+  - expiresAt
+  - user
 properties:
   token:
     type: string
-    description: "Authentication token."
-    example: abcdefghijkl
+    description: "The authentication token."
+    example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
   type:
     type: string
-    description: Type of the token
-    example: Bearer
+    description: "The type of the token."
+    example: "Bearer"
+  user:
+    $ref: './UserResponse.yaml'
+    description: "The user object."
   expiresAt:
     type: string
-    format: datetime
-    description: Timestamp the token is valid to
-    example: "2025-12-31T23:59:59Z"
+    format: date-time
+    description: "The expiration date of the token."
+    example: "2020-10-31T22:00:00Z"
+  refreshTokenExpiresAt:
+    type: string
+    format: date-time
+    description: "The expiration date of the refresh token (sent in Set-Cookie header)."
+    example: "2026-02-05T10:30:00Z"    
+  expiresIn:
+    type: integer
+    description: "Token expiration time in seconds"
+    example: 3600    
   roles:
     type: array
-    description: "An array of roles for the user."
     items:
       type: string
-      description: "The roles of the user."
-  user:
-    $ref: UserResponse.yaml
+    description: "The roles of the user."
+    example: ["ROLE_ADMIN", "ROLE_USER"]

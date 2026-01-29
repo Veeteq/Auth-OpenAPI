@@ -1,0 +1,10 @@
+description: Sets or clears the HTTP refresh token cookie
+schema:
+  type: string
+examples:
+  login:
+    summary: "Login response - sets refresh token cookie (7 days)"
+    value: "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...; Path=/auth/refresh; HttpOnly; Secure; SameSite=Strict; Max-Age=604800"
+  logout:
+    summary: "Logout response - clears refresh token cookie"
+    value: "refreshToken=; Path=/auth/refresh; HttpOnly; Secure; Max-Age=0"

@@ -20,7 +20,7 @@ tags:
   - name: Authentication
     description: "Authentication operations."
   - name: Admin
-    description: "Administrative operations."
+    description: "Administrative user management operations."  
 x-tagGroups:
   - name: General
     tags:
@@ -28,13 +28,13 @@ x-tagGroups:
       - Admin
 paths:
   '/auth/login':
-    $ref: 'paths/auth_login.yaml'
+    $ref: './paths/auth_login.yaml'
   '/auth/logout':
-    $ref: 'paths/auth_logout.yaml'
+    $ref: './paths/auth_logout.yaml'
   '/auth/register':
-    $ref: 'paths/auth_register.yaml'
+    $ref: './paths/auth_register.yaml'
   '/auth/refresh':
-    $ref: 'paths/auth_refresh.yaml'
+    $ref: './paths/auth_refresh.yaml'
   '/users':
     $ref: 'paths/users.yaml'
   '/users/{id}':
