@@ -20,4 +20,8 @@ updates:
       - "redocly"
     allow:
       - dependency-type: "direct"
-        update-types: ["semver:patch", "semver:minor"]
+    # The update-types should be specified under a separate property
+    # Here is how you can specify allowed update types correctly
+    ignore:
+      - dependency-name: "@redocly/cli"
+        versions: ["<2.0.0"]  # Example of ignoring specific versions
