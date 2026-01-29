@@ -1,5 +1,5 @@
 {
-  "name": "acme-api",
+  "name": "auth-openapi",
   "version": "1.0.0",
   "dependencies": {
     "@redocly/cli": "2.15.0"
