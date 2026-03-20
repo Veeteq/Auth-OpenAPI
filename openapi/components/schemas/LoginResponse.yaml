@@ -11,6 +11,7 @@ properties:
     example: "2026-02-05T10:30:00Z"    
   user:
     $ref: './UserResponse.yaml'
+    description: "The user object."
   roles:
     type: array
     items:
