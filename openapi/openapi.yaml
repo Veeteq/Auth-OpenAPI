@@ -41,9 +41,6 @@ paths:
     $ref: 'paths/users_{id}.yaml'
 components:
   securitySchemes:
-    basic_auth:
-      type: http
-      scheme: basic
     bearerAuth:
       type: http
       scheme: bearer
